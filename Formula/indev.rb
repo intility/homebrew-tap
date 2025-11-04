@@ -5,16 +5,16 @@
 class Indev < Formula
   desc "A CLI for managing developer platform resources."
   homepage "https://developers.intility.com"
-  version "0.3.3-6"
+  version "0.4.0"
 
   on_macos do
-    on_intel do
-      url "https://github.com/intility/indev/releases/download/v0.3.3-6/indev_darwin_x86_64.tar.gz",
+    if Hardware::CPU.intel?
+      url "https://github.com/intility/indev/releases/download/v0.4.0/indev_darwin_x86_64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
         ]
-      sha256 "b4e9c95db64a6912cbd323e8f076e7457a400db487cb498c54126f129deaa551"
+      sha256 "e6d237baca56114e991abda6528d21a8845a463d0f42cd049a6159b8c0c0f33f"
 
       def install
         bin.install "indev"
@@ -23,13 +23,13 @@ class Indev < Formula
         fish_completion.install "completions/indev.fish"
       end
     end
-    on_arm do
-      url "https://github.com/intility/indev/releases/download/v0.3.3-6/indev_darwin_arm64.tar.gz",
+    if Hardware::CPU.arm?
+      url "https://github.com/intility/indev/releases/download/v0.4.0/indev_darwin_arm64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
         ]
-      sha256 "dba1654d815c00bfa605e749f7fe2aaaa72a6b663a9ec9fdad04db02154e3a24"
+      sha256 "2197ebc8d60dc418a781999ecc1b179a0b34343d566eacc12bad4c6b4430c2de"
 
       def install
         bin.install "indev"
@@ -41,38 +41,32 @@ class Indev < Formula
   end
 
   on_linux do
-    on_intel do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/intility/indev/releases/download/v0.3.3-6/indev_linux_x86_64.tar.gz",
-          headers: [
-            "Accept: application/octet-stream",
-            "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
-          ]
-        sha256 "7b59d713bddecf8795fd0fe20bdec7641de670963120212a79029004136aa9fc"
-
-        def install
-          bin.install "indev"
-          bash_completion.install "completions/indev.bash" => "indev"
-          zsh_completion.install "completions/indev.zsh" => "_indev"
-          fish_completion.install "completions/indev.fish"
-        end
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/intility/indev/releases/download/v0.4.0/indev_linux_x86_64.tar.gz",
+        headers: [
+          "Accept: application/octet-stream",
+          "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
+        ]
+      sha256 "3fe894510b2328c633d1d8dc329c618176e9dc15ea693718c3dba2fa1a47d1fa"
+      def install
+        bin.install "indev"
+        bash_completion.install "completions/indev.bash" => "indev"
+        zsh_completion.install "completions/indev.zsh" => "_indev"
+        fish_completion.install "completions/indev.fish"
       end
     end
-    on_arm do
-      if Hardware::CPU.is_64_bit?
-        url "https://github.com/intility/indev/releases/download/v0.3.3-6/indev_linux_arm64.tar.gz",
-          headers: [
-            "Accept: application/octet-stream",
-            "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
-          ]
-        sha256 "c9185ab25e9d6c9c25395efbfb95f074b4f34750be2d6b4a4cd23ecb1468d2db"
-
-        def install
-          bin.install "indev"
-          bash_completion.install "completions/indev.bash" => "indev"
-          zsh_completion.install "completions/indev.zsh" => "_indev"
-          fish_completion.install "completions/indev.fish"
-        end
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/intility/indev/releases/download/v0.4.0/indev_linux_arm64.tar.gz",
+        headers: [
+          "Accept: application/octet-stream",
+          "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
+        ]
+      sha256 "6c970b76eedb52f82924158f130573e7db175640845d7f1c8db2993018804296"
+      def install
+        bin.install "indev"
+        bash_completion.install "completions/indev.bash" => "indev"
+        zsh_completion.install "completions/indev.zsh" => "_indev"
+        fish_completion.install "completions/indev.fish"
       end
     end
   end
