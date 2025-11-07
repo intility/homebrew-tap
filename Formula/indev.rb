@@ -5,16 +5,16 @@
 class Indev < Formula
   desc "A CLI for managing developer platform resources."
   homepage "https://developers.intility.com"
-  version "0.5.0"
+  version "0.6.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/intility/indev/releases/download/v0.5.0/indev_darwin_x86_64.tar.gz",
+      url "https://github.com/intility/indev/releases/download/v0.6.0/indev_darwin_x86_64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
         ]
-      sha256 "2b2caec49040abf78c9a1b37a1042251d04a0e9cbcbc10a9732d1b2760454d8c"
+      sha256 "088fdd326ad3ba0f22ca19bc2d0d1bbd72996521766138ccee2ed3c155caa093"
 
       def install
         bin.install "indev"
@@ -24,12 +24,12 @@ class Indev < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/intility/indev/releases/download/v0.5.0/indev_darwin_arm64.tar.gz",
+      url "https://github.com/intility/indev/releases/download/v0.6.0/indev_darwin_arm64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
         ]
-      sha256 "12e7466303bb6356649faa934c895997c57fe35d7d6d71ac6ce5fa47145f9d31"
+      sha256 "98abe74a20aa4e9b848972394e0a29cf78dc7fdc146cfbecafc25eec6b857b18"
 
       def install
         bin.install "indev"
@@ -42,12 +42,12 @@ class Indev < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/intility/indev/releases/download/v0.5.0/indev_linux_x86_64.tar.gz",
+      url "https://github.com/intility/indev/releases/download/v0.6.0/indev_linux_x86_64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
         ]
-      sha256 "07b9519c0ba07d3eedb39b0b7df8aa2c81a8ce585e0c902564e01b87eee10a68"
+      sha256 "38ff14e64ba358bbca75bb9511a1abb341e805802c3e924c01dd01249febf232"
       def install
         bin.install "indev"
         bash_completion.install "completions/indev.bash" => "indev"
@@ -56,12 +56,12 @@ class Indev < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/intility/indev/releases/download/v0.5.0/indev_linux_arm64.tar.gz",
+      url "https://github.com/intility/indev/releases/download/v0.6.0/indev_linux_arm64.tar.gz",
         headers: [
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}"
         ]
-      sha256 "f03cfe92fc64edb60f51c6d3678478a4bd0f205b8733dbfbc1868224e4b58001"
+      sha256 "11e4241e6bf11fc93dfcba53e338b554e7721a69ff2614e921d5dfe8b6f7cc3a"
       def install
         bin.install "indev"
         bash_completion.install "completions/indev.bash" => "indev"
