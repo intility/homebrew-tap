@@ -3,7 +3,7 @@ cask "indev" do
   name "indev"
   desc "A CLI for managing developer platform resources."
   homepage "https://developers.intility.com"
-  version "1.1.0"
+  version "1.1.1"
 
   livecheck do
     skip "Auto-generated on release."
@@ -21,7 +21,7 @@ cask "indev" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}",
         ]
-      sha256 "f237697c82ab28b0a550d078b5e8333dfd703154cf35d9071dd11741e8238250"
+      sha256 "a7894cf6624fbbabb083fbcb762e8b92b7d558ecb56d4f5bcd93c70d40076dde"
     end
     on_arm do
       url "https://github.com/intility/indev/releases/download/v#{version}/indev_darwin_arm64.tar.gz",
@@ -29,7 +29,7 @@ cask "indev" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}",
         ]
-      sha256 "22d9e29a89097eff836a96ce4058d55364b0466d119fefa70ff3883cd8d59959"
+      sha256 "1554aeebeb2d6193166f568764065696aa97cd76c525f92ea7c8442d3144d6fd"
     end
   end
 
@@ -40,7 +40,7 @@ cask "indev" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}",
         ]
-      sha256 "ca65346c53daa4f2b94845496a983e5387246285d053da2e9dd32ec3d1879534"
+      sha256 "f91170150851de4fa134d4ffc64908c0e9700bd930a6c844a2e27b88cad7cb27"
     end
     on_arm do
       url "https://github.com/intility/indev/releases/download/v#{version}/indev_linux_arm64.tar.gz",
@@ -48,7 +48,7 @@ cask "indev" do
           "Accept: application/octet-stream",
           "Authorization: bearer #{ENV["DOWNLOADER_GITHUB_TOKEN"]}",
         ]
-      sha256 "cae2f77d61fcb1dad784372e63ab9d8aff70d8dfff42354ee6df4e0f778d39cf"
+      sha256 "b38e4a8c9f8bdff44c4ba161fcbe5fcea8a53e87f571aa6ea97632bceeadf290"
     end
   end
 
